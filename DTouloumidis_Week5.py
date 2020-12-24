@@ -1,10 +1,8 @@
 import statistics as st
 
 inputdata = []
-with open('inputdata.txt', 'r') as reader:
-    for line in reader:
-        inputdata.append(float(line))
-
-with open('outputdata.txt', 'w') as f:
-    f.write('Μέσος όρος = ' + str(format(st.mean(inputdata), '.3f')) + '\n')
-    f.write('Τυπική απόκλιση = ' + str(format(st.stdev(inputdata), '.3f')))
+with open('inputdata.txt', 'r') as fin:
+    with open('outputdata.txt', 'w') as fout:
+        for line in fin:
+            inputdata.append(float(line))
+        fout.write('Μέσος όρος = {:.3f} \nΤυπική απόκλιση = {:.3f}'.format(st.mean(inputdata), st.stdev(inputdata)))
